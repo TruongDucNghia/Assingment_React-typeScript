@@ -25,7 +25,7 @@ const Header = (props: Props) => {
                   <div className="btn__burger" />
                 </div>
               </div>
-              <a href="index" className="logo">
+              <a href="/" className="logo">
                 <img src="./src/public/img/logo-main.png"  className="logo-img" />
               </a>
             </div>

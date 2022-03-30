@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import {useForm, SubmitHandler} from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+import { registers } from '../../../api/auth'
+import { UserType } from '../../../types/user'
+import FormLogin from './FormLogin'
 
-type Props = {}
 
-const FormUser = (props: Props) => {
+type FormInputRegister = {
+  username: string,
+  email: string,
+  password: string,
+  birthday: string,
+  phone: string,
+  gender: string
+}
+
+
+const FormUser = () => {
+  const {register, handleSubmit, formState:{errors}, reset} = useForm<FormInputRegister>()
+  const navigate = useNavigate()
+  const onSubmitRegister: SubmitHandler<FormInputRegister> = async (data: UserType) =>{
+    await registers({...data, roleId: 0})
+    alert("Đăng ký tài khoản thành công!")    
+    navigate('/')
+    reset()
+    
+  }
   return (
     <div>
         <div className="user-options">
@@ -38,55 +61,33 @@ const FormUser = (props: Props) => {
                       </div>
                       {/* mess form */}
                       {/* <div class="bg-danger"></div> */}
-                      <form method="POST" name="form-login" className="p-5" id="login_user">
-                        <div className="form-group">
-                          <input type="text" name="email" placeholder="Nhập email" className=" email" id="email_login" required />
-                        </div>
-                        <div className="form-group">
-                          <input type="password" name="password" placeholder="Nhập mật khẩu" className="password" id="password_login" />
-                        </div>
-                        <div className="pretty p-default mb-4 mt-4">
-                          <input type="checkbox" id="remember" name="remember" />
-                          <div className="state">
-                            <label>Nhớ thông tin</label>
-                          </div>
-                        </div>
-                        <div className="errLogin text-danger pb-2">
-                        </div>
-                        <button type="submit" className="col-md-12 btn btn-secondary p-2" id="btn_login_client">Đăng
-                          nhập</button>
-                        <div className="forgot-pass text-center m-3">
-                          <a href="forgotPass">Bạn quên mật khẩu?</a>
-                        </div>
-                        <div className="err" style={{ color: 'red' }}>
-                        </div>
-                      </form>
+                      <FormLogin/>
                       {/* register */}
-                      <form method="POST" encType="multipart/form-data" name="form-register" id="register_user" className="p-5">
+                      <form onSubmit={handleSubmit(onSubmitRegister)} encType="multipart/form-data" name="form-register" id="register_user" className="p-5">
                         <div className="errRegister" style={{ color: 'red' }}>
                         </div>
                         <div className="form-group">
-                          <input type="text" name="fullname" id="fullname" placeholder="Tên đầy đủ" className="fullname" />
+                          <input {...register('username')} type="text" name="username" id="username" placeholder="Tên đầy đủ" className="fullname" />
                         </div>
                         <div className="form-group">
-                          <input type="text" name="email" id="email_register" placeholder="Nhập email" className=" email" />
+                          <input {...register('email')} type="text" name="email" id="email_register" placeholder="Nhập email" className=" email" />
                         </div>
                         <div className="form-group">
-                          <input type="password" name="password" placeholder="Nhập mật khẩu" className=" password" id="pass_register" />
+                          <input {...register('password')} type="password" name="password" placeholder="Nhập mật khẩu" className=" password" id="pass_register" />
                         </div>
                         <div className="form-group">
-                          <input type="date" name="birthday" id="birthday" placeholder="Ngày sinh của bạn" className="birthday" />
+                          <input {...register('birthday')} type="date" name="birthday" id="birthday" placeholder="Ngày sinh của bạn" className="birthday" />
                         </div>
                         <div className="form-group">
-                          <input type="text" name="phone" id="phone" placeholder="Số điện thoại của bạn" className="phone" />
+                          <input {...register('phone')} type="text" name="phone" id="phone" placeholder="Số điện thoại của bạn" className="phone" />
                         </div>
                         <div className="gender col-md-12 mb-4 mt-4">
-                          <div className="form-check-inline">
-                            <input className="form-check-input" defaultValue={0} id="gender" type="radio" name="gender" defaultChecked />
+                          <div className="form-check-inline" style={{display: "flex", justifyItems: "center", alignItems:'center'}}>
+                            <input {...register('gender')} className="" defaultValue="Nam" id="gender" type="radio" name="gender" defaultChecked />
                             <label htmlFor="gender" className="form-check-label mr-4">
                               Nam
                             </label>
-                            <input className="form-check-input" id="gender2" type="radio" name="gender" />
+                            <input {...register('gender')} className="" defaultValue="Nữ" id="gender2" type="radio" name="gender" />
                             <label htmlFor="gender2" className="form-check-label">
                               Nữ
                             </label>

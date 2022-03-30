@@ -1,3 +1,34 @@
 {
-    "users":[]
+  "users": [
+    {
+      "email": "nghia@gmail.com",
+      "password": "$2a$10$6kq/kUCE7/LLO51AJrFoJuOthhIiXwNtO6x1Dvh9eQU940d3WzoRG",
+      "username": "Trương Nghĩa",
+      "birthday": "2022-03-30",
+      "phone": "0372559460",
+      "gender": "Nam",
+      "roleId": 0,
+      "id": 1
+    },
+    {
+      "email": "Amin@gmail.com",
+      "password": "$2a$10$K7jDdjTIW8heAqPmtrb5xuF5UKhGYlcOhMmnLYA62eBm6fQoXM5ZO",
+      "username": "Nghĩa Trương",
+      "birthday": "2002-08-03",
+      "phone": "0372559460",
+      "gender": "Nam",
+      "roleId": 1,
+      "id": 2
+    },
+    {
+      "email": "nhung@gmail.com",
+      "password": "$2a$10$Ctb7T9CGZsfdWVpmDYfvCeZr.XZTXt22uPi1unzvq2qZZ6d6k853q",
+      "username": "nhung trần",
+      "birthday": "2022-03-18",
+      "phone": "123123123",
+      "gender": "Nữ",
+      "roleId": 0,
+      "id": 3
+    }
+  ]
 }
