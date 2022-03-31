@@ -11,16 +11,6 @@
       "id": 1
     },
     {
-      "email": "Amin@gmail.com",
-      "password": "$2a$10$K7jDdjTIW8heAqPmtrb5xuF5UKhGYlcOhMmnLYA62eBm6fQoXM5ZO",
-      "username": "Nghĩa Trương",
-      "birthday": "2002-08-03",
-      "phone": "0372559460",
-      "gender": "Nam",
-      "roleId": 1,
-      "id": 2
-    },
-    {
       "email": "nhung@gmail.com",
       "password": "$2a$10$Ctb7T9CGZsfdWVpmDYfvCeZr.XZTXt22uPi1unzvq2qZZ6d6k853q",
       "username": "nhung trần",
@@ -29,6 +19,28 @@
       "gender": "Nữ",
       "roleId": 0,
       "id": 3
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$EkFr3rtWt3lcAPuH/v5HjO0BMDGCeiT3VoWXG/U2FCnL1Uym1HEmW",
+      "username": "admin",
+      "birthday": "2022-03-30",
+      "phone": "113",
+      "gender": "0",
+      "roleId": 1,
+      "id": 4
+    }
+  ],
+  "category": [
+    {
+      "name": "Thời trang nam thời thượng",
+      "img": "https://cdn-images.kooding.com/bannerItem/desktop/737/c9d2d585a8c5603a3d49a63552169f8c30a4e392.jpeg",
+      "id": 1
+    },
+    {
+      "name": "Thời trang nữ cá tính",
+      "img": "https://cdn-images.kooding.com/bannerItem/mobile/556/7c44c8d666df1f60f90df64575e63669fd553b06.jpg",
+      "id": 2
     }
   ]
 }

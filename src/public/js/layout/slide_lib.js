@@ -12,10 +12,10 @@ $(document).ready(function () {
         },
     });
     // slick
-    $('.single-item').slick({
-        autoplay: true,
-        autoplaySpeed: 2500,
-    });
+    // $('.single-item').slick({
+    //     autoplay: true,
+    //     autoplaySpeed: 2500,
+    // });
 
     $('.slide-news').slick({
         dots: true,

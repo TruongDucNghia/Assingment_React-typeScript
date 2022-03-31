@@ -6,8 +6,8 @@ type CheckRoleProps = {
 }
 
 const CheckRole = (props: CheckRoleProps) => {
-    const isAdmin = true
-    if(!isAdmin){
+    const isAdmin = JSON.parse(localStorage.getItem('user') as string)
+    if(isAdmin.user.roleId !== 1){
         return <Navigate to='/'/>
     }
   return (

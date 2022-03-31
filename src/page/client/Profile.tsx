@@ -1,8 +1,54 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import {useForm, SubmitHandler} from 'react-hook-form'
 type Props = {}
-
+type FormInput = {
+    username: string,
+    email: string
+    birthday: string,
+    phone: string,
+    gender: string
+}
 const Profile = (props: Props) => {
+    const {register, handleSubmit, formState, reset} = useForm<FormInput>()
+    const isUser = JSON.parse(localStorage.getItem('user') as string)
+    reset(isUser.user)
+    useEffect(() =>{
+        const me = document.querySelector('#changePass');
+        const show = document.querySelector('#show')
+        me?.addEventListener('click', () =>{
+            show?.classList.toggle('show')
+        })
+        // end
+        const $ = document.querySelector.bind(document)
+        const $$ = document.querySelectorAll.bind(document)
+    
+        const tabs = $$('.acc__menu__item');
+        const panes = $$('.acc__tab__menu');
+        const titles = $$('.acc__title__fist')
+        const line = $('.acc__line');
+        const tabActive = $('.acc__menu__item.active')
+    
+        // line.style.left = tabActive.offsetLeft + 'px'
+        // line.style.width = tabActive.offsetWidth + 'px'
+    
+        tabs.forEach((tab, index) => {
+            const pane = panes[index]
+            const title = titles[index]
+            tab.addEventListener('click', (e) =>{
+              e.preventDefault();
+              $('.acc__menu__item.active')?.classList.remove('active');
+              $('.acc__tab__menu.active')?.classList.remove('active');
+              $('.acc__title__fist.active')?.classList.remove('active');
+              // line.style.left = this.offsetLeft + 'px'
+              // line.style.width = this.offsetWidth + 'px'
+              tab.classList.add('active')
+              pane.classList.add('active')
+              title.classList.add('active')
+            })
+            
+        })   
+      }, [])
+      
     return (
         <div>
             <main className="body__acc">
@@ -56,7 +102,7 @@ const Profile = (props: Props) => {
                                         <form  method="POST" id="form_profile">
                                             <div className="DH__form1">
                                                 <label >Họ và tên</label>
-                                                <input type="text" name="fullname" />
+                                                <input {...register('username')} type="text" name="fullname" />
                                             </div>
                                             {/* <div class="DH__form1">
                               <label for="">Tên hiển thị <i>* Để nhận xét và nhận xét sản phẩm.</i></label>
@@ -65,27 +111,27 @@ const Profile = (props: Props) => {
                           </div> */}
                                             <div className="DH__form1">
                                                 <label>E-mail <i>* Nơi bạn nhận được thông tin đặt hàng.</i></label>
-                                                <input type="email" name="email" disabled />
+                                                <input {...register('email')} type="email" name="email" disabled />
                                             </div>
                                             <div className="DH__form1">
                                                 <label>Số điện thoại</label>
-                                                <input type="text" name="phone"  />
+                                                <input {...register('phone')} type="text" name="phone"  />
                                             </div>
                                             <div className="DH__form1">
                                                 <label>Ngày sinh</label>
-                                                <input type="date" name="birthday" />
+                                                <input {...register('birthday')} type="date" name="birthday" />
                                             </div>
                                             <div className="DH__form2">
                                                 <label className="sex__text">Giới tính</label>
                                                 <div className="DH__checkBox">
                                                     <div className="pretty p-default">
-                                                        <input type="radio" id="nam" name="gender" defaultValue={0} />
+                                                        <input  type="radio" id="nam" name="gender" />
                                                         <div className="state p-info">
                                                             <label htmlFor="">Nam</label>
                                                         </div>
                                                     </div>
                                                     <div className="pretty p-default">
-                                                        <input defaultChecked type="radio" id="nu" name="gender" defaultValue={1} />
+                                                        <input type="radio" id="nu" name="gender" />
                                                         <div className="state p-info">
                                                             <label htmlFor="">Nữ</label>
                                                         </div>

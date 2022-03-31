@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import FormUser from './home/FormUser'
 
 type Props = {}
@@ -25,9 +26,9 @@ const Header = (props: Props) => {
                   <div className="btn__burger" />
                 </div>
               </div>
-              <a href="/" className="logo">
+              <NavLink to="/" className="logo">
                 <img src="./src/public/img/logo-main.png"  className="logo-img" />
-              </a>
+              </NavLink>
             </div>
             <div className="search">
               <form action="productClient" className="form-search" method="GET">

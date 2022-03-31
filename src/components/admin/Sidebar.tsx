@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 type Props = {}
 
@@ -8,33 +9,33 @@ const Sidebar = (props: Props) => {
             <nav className="sidebar sidebar-offcanvas" id="sidebar">
                 <ul className="nav">
                     <li className="nav-item">
-                        <a className="nav-link" href="/admin/dashboard">
+                        <NavLink className="nav-link" to="/admin/dashboard">
                             <i className="mdi mdi-grid-large menu-icon" />
                             <span className="menu-title">Dashboard</span>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="nav-item nav-category">Menu</li>
                     <li className="nav-item">
-                        <a className="nav-link" data-bs-toggle="collapse" href="/admin/products" aria-expanded="false" aria-controls="ui-basic">
+                        <NavLink className="nav-link" data-bs-toggle="collapse" to="/admin/products" aria-expanded="false" aria-controls="ui-basic">
                             <i className="menu-icon mdi mdi-reproduction" /> 
                             
                             <span className="menu-title">Products</span>
                             <i className="menu-arrow" />
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" data-bs-toggle="collapse" href="/admin/category" aria-expanded="false" aria-controls="ui-basic">
+                        <NavLink className="nav-link" data-bs-toggle="collapse" to="/admin/category" aria-expanded="false" aria-controls="ui-basic">
                             <i className="menu-icon mdi mdi-airballoon" />
                             <span className="menu-title">Category</span>
                             <i className="menu-arrow" />
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" data-bs-toggle="collapse" href="/admin/new" aria-expanded="false" aria-controls="form-elements">
+                        <NavLink className="nav-link" data-bs-toggle="collapse" to="/admin/new" aria-expanded="false" aria-controls="form-elements">
                             <i className="menu-icon mdi mdi-card-text-outline" />
                             <span className="menu-title">news</span>
                             <i className="menu-arrow" />
-                        </a>
+                        </NavLink>
                         
                     </li>
 

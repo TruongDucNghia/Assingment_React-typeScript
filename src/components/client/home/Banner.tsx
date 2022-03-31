@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Slider from "react-slick";
 
 type Props = {}
 
 const Banner = (props: Props) => {
+    const settings = {
+        autoplay: true,
+        autoplaySpeed: 3000
+
+      };
     return (
         <div>
-            <div className="banner single-item">
+            <Slider {...settings} className="banner">
                 <a className="banner-item">
                     <div className="banner_imgBox">
                         <img src="./src/public/img/banner1.jpg" width="100%" />
@@ -21,7 +27,7 @@ const Banner = (props: Props) => {
                         <img src="./src/public/img/banner3.jpg" width="100%" />
                     </div>
                 </a>
-            </div>
+            </Slider>
             <div className="category-banner">
                 <a href="#" className="box-cate">
                     Thời Trang Nam
